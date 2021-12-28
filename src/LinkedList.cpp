@@ -1,20 +1,15 @@
 #include "../includes/LinkedList.h"
 
 LinkedList::LinkedList() {
-    head = new Node;
-    head->next = 0;
+    head = NULL;
     length = 0;
 }
 
 void LinkedList::insertFront(int value) {
     Node *node = (Node*)malloc(sizeof(Node));
     node->value = value;
-    if(head == NULL) {
-        head = node;
-        node->next =NULL;
-        length++;
-    }
-    
+    node->next = head;
+    head = node;
 }
 
 void LinkedList::display() {
@@ -25,6 +20,7 @@ void LinkedList::display() {
         std::cout << tmp->value << " -> ";
         ptr = tmp->next;
     }
+    std::cout << "Null" << std::endl;
 }
 
 LinkedList::~LinkedList() {
