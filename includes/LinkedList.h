@@ -16,15 +16,16 @@ struct Node {
 
 class LinkedList {
     private:
-        Node head;
+        Node *head;
         size_t length;
     
     public:
         LinkedList();
-        bool insertFront();
-        bool insertLast();
-        bool insertAtPosition();
+        void insertFront(int value);
+        bool insertLast(int value);
+        bool insertAtPosition(int position);
         void display();
+        ~LinkedList();
 };
 
 
