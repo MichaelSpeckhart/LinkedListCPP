@@ -22,8 +22,8 @@ class LinkedList {
     public:
         LinkedList();
         void insertFront(int value);
-        bool insertLast(int value);
-        bool insertAtPosition(int position);
+        void insertLast(int value);
+        bool insertAtPosition(int value, int position);
         void display();
         ~LinkedList();
 };
