@@ -12,6 +12,8 @@ int main() {
     ll.insertFront(1);
     ll.insertFront(2);
     ll.insertFront(12312);
+    ll.insertFront(21);
+    ll.insertFront(456);
     ll.display();
     return 0;
 }

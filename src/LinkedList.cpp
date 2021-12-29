@@ -24,5 +24,11 @@ void LinkedList::display() {
 }
 
 LinkedList::~LinkedList() {
-
+    Node *ptr = head;
+    while(ptr != 0) {
+        Node *next = ptr->next;
+        delete ptr;
+        ptr = next;
+    }
+    head = 0;
 }
