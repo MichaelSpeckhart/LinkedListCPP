@@ -10,6 +10,7 @@ void LinkedList::insertFront(int value) {
     node->value = value;
     node->next = head;
     head = node;
+    length++;
     return;
 }
 
@@ -32,28 +33,33 @@ void LinkedList::insertLast(int value) {
 
 }
 
-/**
 bool LinkedList::insertAtPosition(int value, int position) {
-    Node *node = (Node*)malloc(sizeof(Node));
-    node->value = value;
-    if(position >= 0 || position > length) {
+    Node *newNode = (Node*)malloc(sizeof(Node));
+    newNode->value = value;
+
+    if(position <= 0 || position > length + 1) {
         std::cerr << "Error: position is out of bounds for the length of the list" << std::endl;
-    }
-    int count = 0;
-    Node *curr = head;
-    while(curr) {
-        if(count == position) {
-            if(curr->next = NULL) {
-                curr = curr->next;
-            }
-        } else{
-            curr = curr->next;
-        }
+        return false;
     }
 
-    node->next = curr->next;
-    curr->next = node;
-} **/
+    int count = 0;
+    Node *next = head;
+    Node *prev = head;
+
+    while(next) {
+        if(count == position) {
+            prev->next = newNode;
+            newNode->next = next;
+            length++;
+            return true;
+        }
+        prev = next;
+        next = prev->next;
+        count++;
+    }
+
+    return false;
+}
 
 void LinkedList::display() {
     Node *tmp = head;

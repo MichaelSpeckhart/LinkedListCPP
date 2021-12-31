@@ -24,6 +24,10 @@ class LinkedList {
         void insertFront(int value);
         void insertLast(int value);
         bool insertAtPosition(int value, int position);
+        void removeFirst();
+        void removeLast();
+        void removeAtPosition();
+        void reverseList();
         void display();
         ~LinkedList();
 };
