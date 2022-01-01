@@ -45,6 +45,7 @@ bool LinkedList::removeFirst() {
     }
 
     head = head->next;
+    length--;
     std::cout << "Linked List after removing first node: " << std::endl;
     display();
     return true;
@@ -65,6 +66,7 @@ bool LinkedList::removeLast() {
 
     last = prev;
     prev->next = NULL;
+    length--;
     std::cout << "Linked List after removing the last node:" << std::endl;
     display();
     return true;
@@ -79,7 +81,17 @@ bool LinkedList::insertAtPosition(int value, int position) {
         return false;
     }
 
-    int count = 0;
+    if(position == 1) {
+        insertFront(value);
+        return true;
+    }
+
+    if(position == length) {
+        insertLast(value);
+        return true;
+    }
+
+    int count = 1;
     Node *next = head;
     Node *prev = head;
 
@@ -97,6 +109,7 @@ bool LinkedList::insertAtPosition(int value, int position) {
         count++;
     }
 
+
     return false;
 }
 
@@ -106,7 +119,17 @@ bool LinkedList::removeAtPosition(int position) {
         return false;
     }
 
-    int count = 0;
+    if(position == 1) {
+        removeFirst();
+        return true;
+    }
+
+    if(position == length) {
+        removeLast();
+        return true;
+    }
+
+    int count = 1;
     Node *next = head;
     Node *prev = head;
 
@@ -136,12 +159,32 @@ void LinkedList::display() {
     std::cout << "Null" << std::endl;
 }
 
+int LinkedList::size() {
+    return length;
+}
+
 LinkedList::~LinkedList() {
     Node *ptr = head;
     while(ptr != 0) {
         Node *next = ptr->next;
-        delete ptr;
+        free(ptr);
         ptr = next;
     }
     head = 0;
+}
+
+void LinkedList::reverseList() {
+    Node *prev = NULL;
+    Node *curr = head;
+    Node *next = NULL;
+    while(curr != NULL) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    head = prev;
+    std::cout << "Linked List after being reversed:" << std::endl;
+    display();
+    return;
 }

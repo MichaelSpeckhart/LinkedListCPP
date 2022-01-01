@@ -18,7 +18,7 @@ struct Node {
 class LinkedList {
     private:
         Node *head;
-        size_t length;
+        int length;
     
     public:
         LinkedList();
@@ -30,6 +30,7 @@ class LinkedList {
         bool removeAtPosition(int position);
         void reverseList();
         void display();
+        int size();
         ~LinkedList();
 };
 
