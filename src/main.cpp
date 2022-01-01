@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 #include "../includes/LinkedList.h"
@@ -11,21 +12,28 @@ void runOptions(char **);
 void printOptions();
 
 int main() {
+
     cout << "Welcome to Linked List program\n" << endl;
     printOptions();
 
     LinkedList ll;
     
-    for(int i = 0; i < 30; i++) {
-        ll.insertFront(i);
+    for(int i = 1; i < 31; i++) {
+        ll.insertLast(i);
     }
 
-    ll.display();
-    ll.insertAtPosition(1, 5);
-    ll.insertAtPosition(555, 1);
-    ll.insertAtPosition(432, 0);
-    ll.insertAtPosition(1, 21);
-    ll.display();
+    
+
+    ll.insertAtPosition(20, 20);
+    
+
+    ll.removeFirst();
+    
+
+    ll.removeLast();
+
+    ll.removeAtPosition(10);
+    
     return 0;
 }
 

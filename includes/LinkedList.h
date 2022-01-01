@@ -12,6 +12,7 @@
 struct Node {
     int value;
     Node *next;
+    Node *prev;
 };
 
 class LinkedList {
@@ -24,9 +25,9 @@ class LinkedList {
         void insertFront(int value);
         void insertLast(int value);
         bool insertAtPosition(int value, int position);
-        void removeFirst();
-        void removeLast();
-        void removeAtPosition();
+        bool removeFirst();
+        bool removeLast();
+        bool removeAtPosition(int position);
         void reverseList();
         void display();
         ~LinkedList();
